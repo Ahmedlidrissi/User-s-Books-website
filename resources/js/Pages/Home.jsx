@@ -1,5 +1,9 @@
+import './MainMedia.css'
+import LogIn from './LogSign/LogIn'
+import CardItem from './CardItem'
 export default function Home (){
-    return (
-        <h1>Hello</h1>
+    return(
+        <CardItem />
     )
+
 }
