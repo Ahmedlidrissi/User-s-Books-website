@@ -17,7 +17,7 @@ export default function DefaultLayout({ children }){
                         </div>
                         <ul className='nav-links'>
                             <li className='li'><Link href='/'>Home</Link></li>
-                            <li className='li'><Link href='/products'>Books</Link></li>
+                            <li className='li'><Link href='/books'>Books</Link></li>
                             <li className='li'><Link href='/Gener'>Gener</Link></li>
                             <li>
                                 <div className='group'>
