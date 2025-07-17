@@ -15,8 +15,8 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Books::all();
-        return Inertia::render('Books/Index', ['books' =>$books]);
+        $book = Books::latest()->get();
+        return Inertia::render('Books/Index', ['books' =>$book]);
     }
 
     /**
@@ -32,27 +32,27 @@ class BooksController extends Controller
      */
     public function store(StoreBooksRequest $request)
     {
-        $validated = $request->validated([]);
+        $validated = $request->validated();
         if ($request->hasFile('cover_image')) {
         $path = $request->file('cover_image')->store('covers', 'public');
         $validated['cover_image'] = $path;
     }
         Books::create($validated);
-        return redirect() ->route('books.index')->with('success', 'Book created successfully.');
+        return Inertia::location(route('books.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Books $books)
+    public function show(Books $book)
     {
-        //
+        return Inertia::render('Books/Show', ['book' => $book]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Books $books)
+    public function edit(Books $book)
     {
         //
     }
@@ -60,7 +60,7 @@ class BooksController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBooksRequest $request, Books $books)
+    public function update(UpdateBooksRequest $request, Books $book)
     {
         //
     }
@@ -68,8 +68,9 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Books $books)
+    public function destroy(Books $book)
     {
-        //
+        $book->delete();
+        return Inertia::location(route('books.index'));
     }
 }

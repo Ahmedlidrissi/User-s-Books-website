@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Inertia } from '@inertiajs/inertia';
+import './books.css'
 function CreateBook(){
     const [form, setForm] = useState({
         title: '',
@@ -28,18 +29,30 @@ function CreateBook(){
         });
     }
     return(
-        <form onSubmit={handleSubmit} > 
+        <form className='create-book-form' onSubmit={handleSubmit} > 
             <h1>Add book</h1>
-            <input name='title' placeholder='Title' onChange={(e) => setForm({...form, title : e.target.value})}/>
-            <input name='genre' placeholder='Genre' onChange={(e) => setForm({...form, genre : e.target.value})}/>
-            <input name='description' placeholder='Description' onChange={(e) => setForm({...form, description : e.target.value})}/>
-            <input name='date' type='date' placeholder='Publish Date' onChange={(e) => setForm({...form, publish_date : e.target.value})}/>
-            <input name='author' placeholder='Author' onChange={(e) => setForm({...form, author : e.target.value})}/>
-            <input name='price' placeholder='Price' onChange={(e) => setForm({...form, price : e.target.value})}/>
-            <input name='cover_image' type='file'
+            <input type='text' name='title' placeholder='Title' onChange={(e) => setForm({...form, title : e.target.value})}/>
+            <input type='text' name='genre' placeholder='Genre' onChange={(e) => setForm({...form, genre : e.target.value})}/>
+            <textarea
+                name="description"
+                placeholder="Description"
+                className="description-input"
+                onChange={e => setForm({ ...form, description: e.target.value })}
+                value={form.description}
+            />
+            <input  name='date' type='date' placeholder='Publish Date' onChange={(e) => setForm({...form, publish_date : e.target.value})}/>
+            <input type='text' name='author' placeholder='Author' onChange={(e) => setForm({...form, author : e.target.value})}/>
+            <input type='text' name='price' placeholder='Price' onChange={(e) => setForm({...form, price : e.target.value})}/>
+            <div className="upload">
+                <label htmlFor="cover_image">{form.cover_image ? form.cover_image.name : "Choose a file..."}</label>
+            <button type = "button" className = "btn-warning">
+                <i className = "fa fa-upload"></i> Upload File
+                <input name='cover_image' type='file'
                 placeholder='Cover Image'
                 onChange={e => setForm({...form, cover_image: e.target.files[0]})}
                 />
+            </button>
+            </div>
             <input type="hidden" name="_token" value={form._token} />
             <input type="submit" value="Create Book" />
         </form>

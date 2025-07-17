@@ -13,6 +13,6 @@ createInertiaApp({
     return page
   },
   setup({ el, App, props }) {
-    createRoot(el).render(<BrowserRouter><App {...props} /></BrowserRouter>)
+    createRoot(el).render(<App {...props} />)
   },
 })

@@ -24,7 +24,7 @@ class StoreBooksRequest extends FormRequest
         return [
         'title' => 'required|string',
         'genre' => 'required|string',
-        'description' => 'required|string',
+        'description' => 'required',
         'publish_date' => 'required|string|date',
         'author' => 'required|string',
         'price' => 'required|numeric',

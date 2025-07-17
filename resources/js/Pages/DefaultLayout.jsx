@@ -35,7 +35,7 @@ export default function DefaultLayout({ children }){
                
         </nav>
                 </header>
-                <article>
+                <article className='article-container'>
                     {children}
                 </article>
                 <footer>
