@@ -32,15 +32,7 @@ class BooksController extends Controller
      */
     public function store(StoreBooksRequest $request)
     {
-        $validated = $request->validated([
-        'title' => 'required|string',
-        'genre' => 'required|string',
-        'description' => 'required|string',
-        'publish_date' => 'required|string|date',
-        'author' => 'required|string',
-        'price' => 'required|numeric',
-        'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-        ]);
+        $validated = $request->validated([]);
         if ($request->hasFile('cover_image')) {
         $path = $request->file('cover_image')->store('covers', 'public');
         $validated['cover_image'] = $path;
