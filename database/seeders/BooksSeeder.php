@@ -12,6 +12,6 @@ class BooksSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

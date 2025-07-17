@@ -9,3 +9,7 @@ Route::get('/', function () {
 });
 
 Route::resource('books', BooksController::class);
+
+// Route::middleware(['web'])->group(function () {
+//     Route::resource('books', BooksController::class);
+// });

@@ -31,7 +31,7 @@ function CreateBook(){
             <input placeholder='Title' onChange={(e) => setForm({...form, title : e.target.value})}/>
             <input placeholder='Genre' onChange={(e) => setForm({...form, genre : e.target.value})}/>
             <input placeholder='Description' onChange={(e) => setForm({...form, description : e.target.value})}/>
-            <input type='date' placeholder='Publish Date' onChange={(e) => setForm({...form, publish_date : e.target.value})}/>
+            <input placeholder='Publish Date' onChange={(e) => setForm({...form, publish_date : e.target.value})}/>
             <input placeholder='Author' onChange={(e) => setForm({...form, author : e.target.value})}/>
             <input placeholder='Price' onChange={(e) => setForm({...form, price : e.target.value})}/>
             <input type='file'
