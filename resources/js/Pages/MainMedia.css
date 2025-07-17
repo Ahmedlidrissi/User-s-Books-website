@@ -1,6 +1,5 @@
-@media only screen and(max-width: 500) {
+@media only screen and (max-width: 1470px) {
     .NavBar {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
     }
 }

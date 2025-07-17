@@ -21,7 +21,6 @@
 .NavBar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 10px 20px;
     background-color: rgb(236, 239, 241);
     border-radius: 13px;
@@ -39,8 +38,8 @@
     height: 60px;
 }
 .NavBar .nav-links > .li{
-    margin: 0 10px;
-    width: fit-content;
+    display: inline-block;
+    position: relative;
     list-style: none;
 }
 .NavBar .nav-links > li{
@@ -56,6 +55,7 @@
     color: black;
     transition: font-size 0.3s, color 0.3s, margin 0.3s;
     font-size: 1rem;
+    width: fit-content;
 }
 .NavBar .nav-links > .li >a:hover{
     text-decoration: underline;
@@ -78,10 +78,11 @@
  align-items: center;
  position: relative;
  max-width: 900px;
+ width: 400px;
 }
 
 .input-search {
- width: 500px;
+ width: 400px;
  height: 40px;
  line-height: 28px;
  padding: 0 1rem;
@@ -398,6 +399,7 @@ footer{
 .article-container{
   margin: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
