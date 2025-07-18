@@ -29,7 +29,7 @@ function CreateBook(){
         });
     }
     return(
-        <form className='create-book-form' onSubmit={handleSubmit} > 
+        <form className='create-book-form' onSubmit={handleSubmit}> 
             <h1>Add book</h1>
             <input type='text' name='title' placeholder='Title' onChange={(e) => setForm({...form, title : e.target.value})}/>
             <input type='text' name='genre' placeholder='Genre' onChange={(e) => setForm({...form, genre : e.target.value})}/>
@@ -44,14 +44,16 @@ function CreateBook(){
             <input type='text' name='author' placeholder='Author' onChange={(e) => setForm({...form, author : e.target.value})}/>
             <input type='text' name='price' placeholder='Price' onChange={(e) => setForm({...form, price : e.target.value})}/>
             <div className="upload">
-                <label htmlFor="cover_image">{form.cover_image ? form.cover_image.name : "Choose a file..."}</label>
-            <button type = "button" className = "btn-warning">
-                <i className = "fa fa-upload"></i> Upload File
-                <input name='cover_image' type='file'
-                placeholder='Cover Image'
-                onChange={e => setForm({...form, cover_image: e.target.files[0]})}
-                />
-            </button>
+                <label htmlFor="cover_image" className="btn-warning" style={{ cursor: "pointer" }}>
+                    <i className="fa fa-upload"></i> {form.cover_image ? form.cover_image.name : "Upload File"}
+                    <input
+                        id="cover_image"
+                        name="cover_image"
+                        type="file"
+                        style={{ display: "none" }}
+                        onChange={e => setForm({ ...form, cover_image: e.target.files[0] })}
+                    />
+                </label>
             </div>
             <input type="hidden" name="_token" value={form._token} />
             <input type="submit" value="Create Book" />
