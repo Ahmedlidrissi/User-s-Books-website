@@ -11,7 +11,7 @@ class UpdateBooksRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class UpdateBooksRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string',
+            'genre' => 'required|string',
+            'description' => 'required',
+            'publish_date' => 'required|string|date',
+            'author' => 'required|string',
+            'price' => 'required|numeric',
+            // Make cover_image optional for update
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

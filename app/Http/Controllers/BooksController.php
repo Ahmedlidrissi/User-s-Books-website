@@ -61,7 +61,13 @@ class BooksController extends Controller
      */
     public function update(UpdateBooksRequest $request, Books $book)
     {
-        //
+        $validated = $request->validated();
+        if ($request->hasFile('cover_image')) {
+            $path = $request->file('cover_image')->store('covers', 'public');
+            $validated['cover_image'] = $path;
+        }
+        $book->update($validated);
+        return Inertia::location(route('books.index'));
     }
 
     /**

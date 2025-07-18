@@ -10,7 +10,7 @@ function CreateBook(){
         author: '',
         price: '',
         cover_image: '',
-        // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
     })
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ function CreateBook(){
         formData.append('author', form.author);
         formData.append('price', form.price);
         formData.append('cover_image', form.cover_image);
-        // formData.append('_token', form._token);
+        formData.append('_token', form._token);
 
         Inertia.post('/books', formData, {
             forceFormData: true,
