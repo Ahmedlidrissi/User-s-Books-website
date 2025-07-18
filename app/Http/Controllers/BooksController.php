@@ -53,7 +53,7 @@ class BooksController extends Controller
      */
     public function edit(Books $book)
     {
-        //
+        return Inertia::render('Books/Edit', ['book' => $book]);
     }
 
     /**
