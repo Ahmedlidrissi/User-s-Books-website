@@ -26,7 +26,8 @@ function Edit() {
         if (form.cover_image) {
             formData.append('cover_image', form.cover_image);
         }
-        Inertia.put(`/books/${book.id}`, formData, {
+        formData.append('_method', 'PUT');
+        Inertia.post(`/books/${book.id}`, formData, {
             forceFormData: true,
         });
     };
